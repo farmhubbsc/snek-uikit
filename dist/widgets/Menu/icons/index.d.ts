@@ -24,3 +24,4 @@ export { default as MouseFarmIcon } from "./MouseFarm";
 export { default as SnekFarmIcon } from "./SnekFarm";
 export { default as EagleFarmIcon } from "./EagleFarm";
 export { default as FarmhubIcon } from "./FarmhubIcon";
+export { default as EagleNestIcon } from "./EagleNest";
