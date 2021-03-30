@@ -20,3 +20,4 @@ export { default as AuditIcon } from "./Audit";
 export { default as NestIcon } from "./Nest";
 export { default as GithubIcon } from "./Github";
 export { default as FarmhubIcon } from "./Farmhub";
+export { default as ToadFarmIcon } from "./ToadFarm";
