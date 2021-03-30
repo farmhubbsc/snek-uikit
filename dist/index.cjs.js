@@ -2264,6 +2264,14 @@ var MenuLink = function (_a) {
 
 var Icons$1 = IconModule;
 var Container$1 = styled__default['default'].div(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"], ["\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n  overflow-x: hidden;\n  height: 100%;\n"])));
+function SubIconElement(_a) {
+    var icon = _a.icon;
+    if (icon) {
+        var Icon = Icons$1[icon];
+        return React__default['default'].createElement(Icon, { width: "18px", mr: "8px" });
+    }
+    return null;
+}
 var PanelBody = function (_a) {
     var isPushed = _a.isPushed, pushNav = _a.pushNav, isMobile = _a.isMobile, links = _a.links;
     var location = reactRouterDom.useLocation();
@@ -2275,19 +2283,18 @@ var PanelBody = function (_a) {
         var calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
         if (entry.items) {
             return (React__default['default'].createElement(Accordion, { key: entry.label, isPushed: isPushed, pushNav: pushNav, icon: iconElement, label: entry.label, initialOpenState: entry.initialOpenState, className: calloutClass }, isPushed &&
-                entry.items.map(function (item) {
-                    var SubIcon = Icons$1[item.icon];
-                    var subIconElement = React__default['default'].createElement(SubIcon, { width: "18px", mr: "8px" });
-                    return (React__default['default'].createElement(MenuEntry, { key: item.href, secondary: true, isActive: item.href === location.pathname, onClick: handleClick },
-                        item.icon && subIconElement,
-                        React__default['default'].createElement(MenuLink, { href: item.href }, item.label)));
-                })));
+                entry.items.map(function (item) { return (React__default['default'].createElement(MenuEntry, { key: item.href, secondary: true, isActive: item.href === location.pathname, onClick: handleClick },
+                    React__default['default'].createElement(SubIconElement, { icon: item.icon }),
+                    React__default['default'].createElement(MenuLink, { href: item.href }, item.label))); })));
         }
         return (React__default['default'].createElement(MenuEntry, { key: entry.label, isActive: entry.href === location.pathname, className: calloutClass },
             React__default['default'].createElement(MenuLink, { href: entry.href, onClick: handleClick },
                 iconElement,
                 React__default['default'].createElement(LinkLabel, { isPushed: isPushed }, entry.label))));
     })));
+};
+SubIconElement.defaultProps = {
+    icon: undefined,
 };
 var templateObject_1$9;
 
